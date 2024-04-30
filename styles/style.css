@@ -34,6 +34,7 @@ main {
     align-items: center;
     justify-content: center;  
     margin-top: 80px;
+
 }
 
 
@@ -45,6 +46,9 @@ main {
 }
 
 
+.movie-image:hover {
+    
+}
 
 #filmes {
     display: grid;
@@ -142,8 +146,57 @@ footer:focus {
     background-color: aliceblue;
 }
 
-.quiz-itens {
+.quiz {
     position: absolute;
-    top: 0;
+    top: 16px;
     bottom: 0;
+    width: 60%;
+    height: 90%;
+    color: #000000;
+    padding: 20px;
+    border-radius: 1rem;
+    font-size: 12px;
+}
+
+.hide {
+    display: none;
+}
+
+.modal-bg {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background: gainsboro;
+    opacity: 0.7;
+    overflow: auto;
+}
+
+.modal-content {
+    position: fixed;
+    margin: 0 auto;
+    width: 80%;
+    height: 85%;
+    top: 50px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background: white;
+    box-shadow: 0px 0px 10px black;
+    border-radius: 5px;
+    padding: 5px;
+    overflow: scroll;
+}
+
+.modal-close {
+    font-size: 2rem;
+    line-height: 1;
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #AAAAAA;
+    font-family: 'Helvetica Neue', Helvetica, Helvetica, Arial, sans-serif;
 }

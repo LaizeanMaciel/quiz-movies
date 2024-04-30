@@ -1,5 +1,3 @@
-/* --------------- Lista de filmes --------------- */
-
 const movies = [
     {
         titulo: "Sexta-Feira 13",
@@ -62,116 +60,148 @@ const movies = [
    
   ];
 
-  /*--------------- Perguntas --------------------*/
+  /*-------------------------------------------------------------------*/
 
   const perguntas = [
     {
-        pergunta: "Quem foi o diretor do filme 'Sexta-Feira 13' de 1980?",
+        pergunta: "Quem é o assassino no filme Sexta-Feira 13 de 1980?",
         respostas: [
-            "Wes Craven",
-            "Tobe Hooper",
-            "Sean S. Cunningham"
-        ],
-        correta: 2
-    },
-    {
-        pergunta: "Onde se passa a maior parte da ação do filme?",
-        respostas: [
-            "Numa cidade pequena",
-            "Numa ilha deserta",
-            "Num acampamento de verão"
-        ],
-        correta: 2
-    },
-    {
-        pergunta: "Qual é o nome do assassino em 'Sexta-Feira 13'?",
-        respostas: [
-            "Michael Myers",
             "Jason Voorhees",
+            "Pamela Voorhees",
             "Freddy Krueger"
         ],
         correta: 1
     },
     {
-        pergunta: "Quem é a protagonista do filme?",
-        respostas: [
-            "Laurie Strode",
-            "Nancy Thompson",
-            "Alice Hardy"
-        ],
-        correta: 2
-    },
-    {
-        pergunta: "Qual é o motivo do assassino em 'Sexta-Feira 13'?",
-        respostas: [
-            "Vingança por uma injustiça sofrida",
-            "Loucura súbita",
-            "Adoração ao sobrenatural"
-        ],
-        correta: 0
-    },
-    {
-        pergunta: "Qual é o título original do filme?",
-        respostas: [
-            "Friday the 13th",
-            "Nightmare on Elm Street",
-            "Halloween"
-        ],
-        correta: 0
-    },
-    {
-        pergunta: "Quantos filmes da série 'Sexta-Feira 13' foram lançados até 2022?",
-        respostas: [
-            "3",
-            "10",
-            "12"
-        ],
-        correta: 2
-    },
-    {
         pergunta: "Qual é o nome do acampamento onde ocorrem os assassinatos no filme?",
         respostas: [
-            "Camp Crystal Lake",
-            "Camp Green Lake",
-            "Camp Firewood"
+            "Acampamento Crystal Lake",
+            "Acampamento de Verão",
+            "Acampamento do Lago Negro"
         ],
         correta: 0
     },
     {
-        pergunta: "Quem foi o responsável pelo roteiro do filme?",
+        pergunta: "Qual é o motivo dos assassinatos no filme?",
         respostas: [
-            "Wes Craven",
-            "John Carpenter",
-            "Victor Miller"
-        ],
-        correta: 2
-    },
-    {
-        pergunta: "Qual foi a principal influência para a criação do filme?",
-        respostas: [
-            "Halloween",
-            "A Noite dos Mortos-Vivos",
-            "O Massacre da Serra Elétrica"
+            "Vingança",
+            "Loucura",
+            "Ritual macabro"
         ],
         correta: 0
+    },
+    {
+        pergunta: "Quantos anos se passaram desde o incidente original até os eventos do filme?",
+        respostas: [
+            "10 anos",
+            "20 anos",
+            "30 anos"
+        ],
+        correta: 1
+    },
+    {
+        pergunta: "Qual é o destino final da protagonista, Alice, no filme?",
+        respostas: [
+            "Ela sobrevive",
+            "Ela é morta",
+            "Ela fica traumatizada"
+        ],
+        correta: 0
+    },
+    {
+        pergunta: "Como Jason Voorhees morreu originalmente?",
+        respostas: [
+            "Afogado no lago",
+            "Decapitado",
+            "Queimado em um incêndio"
+        ],
+        correta: 0
+    },
+    {
+        pergunta: "Qual é o principal objeto de cena associado ao assassino?",
+        respostas: [
+            "Uma faca",
+            "Uma serra elétrica",
+            "Um machado"
+        ],
+        correta: 0
+    },
+    {
+        pergunta: "Qual é o título original do filme Sexta-Feira 13 de 1980?",
+        respostas: [
+            "Friday the 13th",
+            "The Nightmare on Elm Street",
+            "The Texas Chain Saw Massacre"
+        ],
+        correta: 0
+    },
+    {
+        pergunta: "Quantas sequências diretas o filme original gerou?",
+        respostas: [
+            "7",
+            "8",
+            "9"
+        ],
+        correta: 1
+    },
+    {
+        pergunta: "Qual é a classificação indicativa do filme Sexta-Feira 13 de 1980?",
+        respostas: [
+            "PG-13",
+            "R",
+            "NC-17"
+        ],
+        correta: 1
     }
   ];
 
-  /*------------------------------------------------------------------------*/
+  /*----------------------------------------------------------------------*/
 
   const template = document.querySelector('template')
   const filmes = document.querySelector('#filmes')
+  
   
 
   for (item of movies) {
     const movieItem = template.content.cloneNode(true)
     movieItem.querySelector('p').textContent = item.titulo
     movieItem.querySelector('img').src = item.imagem
-   
-    
 
     filmes.appendChild(movieItem)
     
   }
 
-  
+    const quizItens = document.querySelector('.quiz-itens')
+    const quiz = document.querySelector('.quiz')
+
+for (item of perguntas) {
+   
+    const quizPerguntas = quizItens.cloneNode(true)
+    quizPerguntas.querySelector('h2').textContent = item.pergunta
+    
+
+    for(let resposta of item.respostas ) {
+        const dt = quizPerguntas.querySelector('dl dt').cloneNode(true)
+        dt.querySelector('p').textContent = resposta
+
+        quizPerguntas.querySelector('dl').appendChild(dt)
+    }
+    
+
+    quiz.appendChild(quizPerguntas)
+}
+
+
+
+var quizbtn = $(".quiz-btn");
+var modal = $("#modal");
+var modalClose = $("#modal .modal-close");
+var modalBackground = $("#modal .modal-bg");
+
+quizbtn.click(function () {
+    modal.fadeIn(500);
+});
+
+modalClose.click(function () {
+    modal.fadeOut(500);
+});

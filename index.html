@@ -15,10 +15,8 @@
     <h2>Escolha um filme:</h2>
 
     <div id="filmes"></div>
-
-    <template>
-
-        
+    
+    <template class="temp1"> 
         <div class="item-movie">
 
             <div class="movies" >
@@ -26,35 +24,37 @@
                 <p class="movie-name">Nome do filme</p>
             </div>
         </div>
-
-        <div id="quiz"></div>
-
-                    <div id="quiz-itens">
-                        <h3>Pergunta 01</h3>
-                        <dl>
-                            <dt>
-                                <input type="radio" name="item" value="0">
-                                <span>Resposta A</span>
-                            </dt>
-                        </dl>
-                    </div>
-        </div>
-
     </template>
 
-    <button class="quiz-btn" type="button">Iniciar Quiz</button> 
-    
-    
+    <div id="modal" class="hide">
+        <div class="modal-bg"></div>
 
+        <div class="modal-content">
+        
+            <div class="quiz"></div>
+            <a class="modal-close">&#215;</a>
+        </div>
+    </div>    
+             
+            <div class="quiz-itens">
+                <h2>Pergunta 1</h2>
+                    <dl>
+                        <dt>
+                            <input type="radio" name="item" value="0">
+                            <p>Resposta A</p>
+                        </dt>
+                    </dl>
+            </div>
+            
+        <button class="quiz-btn" type="button">Iniciar Quiz</button>
+    
 </main>
-
-
-
 
 <footer>
     <p>Criado por Laizean Maciel</p>
 </footer>
     
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="script/script.js"></script>
 </body>
 </html>
