@@ -45,9 +45,6 @@ main {
 }
 
 
-.movie-image:hover {
-    
-}
 
 #filmes {
     display: grid;
@@ -143,4 +140,10 @@ footer:focus {
 
 .movies:focus {
     background-color: aliceblue;
+}
+
+.quiz-itens {
+    position: absolute;
+    top: 0;
+    bottom: 0;
 }
