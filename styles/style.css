@@ -46,9 +46,6 @@ main {
 }
 
 
-.movie-image:hover {
-    
-}
 
 #filmes {
     display: grid;
@@ -76,6 +73,10 @@ main {
     
 }
 
+.movies:focus {
+    border: 2px solid black;
+}
+
 .movies p {
     text-align: center;
     margin-top: 3px;
@@ -94,7 +95,7 @@ main {
 
 
 .movies:hover {
-    -webkit-transform: scale(1.1);
+   transform : scale(1.1);
     transition: all 0.5s;
 }
 
@@ -107,7 +108,7 @@ main {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-family: gillsans;
+    font-family: gillsans; 
 }
 
 .title-text img {
@@ -147,15 +148,13 @@ footer:focus {
 }
 
 .quiz {
-    position: absolute;
-    top: 16px;
-    bottom: 0;
-    width: 60%;
-    height: 90%;
+    width: 100%;
+    height: 100%;
     color: #000000;
     padding: 20px;
-    border-radius: 1rem;
     font-size: 12px;
+    display: flex;
+    flex-direction: column;
 }
 
 .hide {
@@ -170,7 +169,6 @@ footer:focus {
     left: 0px;
     background: gainsboro;
     opacity: 0.7;
-    overflow: auto;
 }
 
 .modal-content {
@@ -187,6 +185,10 @@ footer:focus {
     border-radius: 5px;
     padding: 5px;
     overflow: scroll;
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .modal-close {
@@ -199,4 +201,83 @@ footer:focus {
     cursor: pointer;
     color: #AAAAAA;
     font-family: 'Helvetica Neue', Helvetica, Helvetica, Arial, sans-serif;
+}
+
+
+
+/*----------------MODAL 2--------------------*/
+
+.hide-2 {
+    display: none;
+}
+
+.modal-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-bg-2 {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background: gainsboro;
+    opacity: 0.7;
+    
+}
+
+.modal-content-2 {
+    position: fixed;
+    margin: 0 auto;
+    width: 50%;
+    height: 50%;
+    top: 100px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background: white;
+    box-shadow: 0px 0px 10px black;
+    border-radius: 5px;
+    padding: 5px;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close-2 {
+    font-size: 2rem;
+    line-height: 1;
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #AAAAAA;
+    font-family: 'Helvetica Neue', Helvetica, Helvetica, Arial, sans-serif;
+}
+
+
+dt {
+    display: flex;
+    gap: px;
+}
+
+.quiz-itens h2 {
+   margin: 10px 0px 10px 0px;
+}
+
+.result-btn {
+    position: absolute;
+    top: 169%;
+    padding: 10px;
+
+}
+
+.result-btn button {
+    width: 120px;
+    padding: 10px;
+    border-radius: 1rem;
 }

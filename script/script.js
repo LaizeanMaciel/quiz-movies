@@ -62,6 +62,7 @@ const movies = [
 
   /*-------------------------------------------------------------------*/
 
+
   const perguntas = [
     {
         pergunta: "Quem é o assassino no filme Sexta-Feira 13 de 1980?",
@@ -155,6 +156,9 @@ const movies = [
     }
   ];
 
+
+  
+
   /*----------------------------------------------------------------------*/
 
   const template = document.querySelector('template')
@@ -173,26 +177,40 @@ const movies = [
 
     const quizItens = document.querySelector('.quiz-itens')
     const quiz = document.querySelector('.quiz')
+    const corretas = new Set()
 
-for (item of perguntas) {
-   
-    const quizPerguntas = quizItens.cloneNode(true)
-    quizPerguntas.querySelector('h2').textContent = item.pergunta
+    for (let i = 0; i < perguntas.length; i++) {
+        const item = perguntas[i];
+        const quizPerguntas = quizItens.cloneNode(true);
+        quizPerguntas.querySelector('h2').textContent = item.pergunta;
     
+        for (let resposta of item.respostas) {
+            const dt = quizPerguntas.querySelector('dl dt').cloneNode(true)
+            dt.querySelector('p').textContent = resposta
+            dt.querySelector('input').setAttribute('name', 'pergunta-' + i); // Corrigido para usar o índice 'i'
+            dt.querySelector('input').value = item.respostas.indexOf(resposta)
+            dt.querySelector('input').onchange = (event) => {
+                const estaCorreta = event.target.value == item.correta
 
-    for(let resposta of item.respostas ) {
-        const dt = quizPerguntas.querySelector('dl dt').cloneNode(true)
-        dt.querySelector('p').textContent = resposta
-
-        quizPerguntas.querySelector('dl').appendChild(dt)
-    }
+                    corretas.delete(item)
+                if (estaCorreta) {
+                    alert('acertou')
+                    corretas.add(item)
+                }
+                alert(corretas.size)
+            }
     
+            quizPerguntas.querySelector('dl').appendChild(dt)
+        }
+    
+        quiz.appendChild(quizPerguntas)
+        quizPerguntas.querySelector('dl dt').remove()
 
-    quiz.appendChild(quizPerguntas)
-}
+    }  quizItens.remove()
 
 
-
+/*---------------------MODAL-1-----------------------*/
+    
 var quizbtn = $(".quiz-btn");
 var modal = $("#modal");
 var modalClose = $("#modal .modal-close");
@@ -205,3 +223,23 @@ quizbtn.click(function () {
 modalClose.click(function () {
     modal.fadeOut(500);
 });
+
+/*---------------------MODAL-2-----------------------*/
+
+var resultBtn = $(".result-btn")
+var modal2 = $("#modal-2")
+var modalClose2 = $("#modal-2 .modal-close-2")
+var modalBackground2 = $('#modal-2 .modal-bg-2')
+
+resultBtn.click(function () {
+    modal2.fadeIn(500)
+})
+
+modalClose2.click(function () {
+    modal2.fadeOut(500);
+})
+
+
+   
+
+
